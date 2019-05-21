@@ -1,0 +1,99 @@
+.stories-container {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 80px 0;
+  background: white;
+}
+
+.user-stories {
+  height: fit-content;
+  padding: 2rem 0rem 3rem 0;
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  position: relative;
+}
+
+.user-profile-img {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 50px;
+  background-size: cover;
+  top: -2.5rem;
+  left: calc((70vw - 70px) / 2);
+}
+
+.stories-nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 1rem 2rem;
+}
+
+.stories-nav-btn {
+  background: #ffffff;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.user-name {
+  margin: 3rem 0 00;
+  color: black;
+}
+.user-text {
+  width: 70%;
+  height: 50px;
+  font-size: 16px;
+  line-height: 162.2%;
+  color: black;
+}
+.stories-header {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 44px;
+  letter-spacing: 0.01em;
+  padding: 20px 0;
+  margin: 0 0 50px 0;
+}
+.nav-circles-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 20%;
+  height: 20px;
+  align-items: center;
+}
+.nav-circles {
+  background: #f2f5fa;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+}
+
+.nav-circles:hover {
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 2px solid #56c2ff;
+}
+.nav-circles.active {
+  background: #56c2ff;
+}
