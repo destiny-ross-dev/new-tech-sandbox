@@ -6,9 +6,10 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 10vmin;
+  height: 12vmin;
   pointer-events: none;
-  margin: 5vh 0;
+  margin: 5vh 5vw;
+  align-self: flex-start;
 }
 
 .App-header {
@@ -95,12 +96,16 @@ label:hover {
 }
 .App-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .view-container {
   width: 50vw;
   display: flex;
   flex-direction: column;
-  text-align: start;
+  text-align: center;
 }
 h2 {
   width: 100%;

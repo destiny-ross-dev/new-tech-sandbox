@@ -1,0 +1,25 @@
+table {
+  width: 90vw;
+  height: 80vh;
+  border: 1px solid white;
+  border-radius: 7px;
+  border-collapse: separate;
+}
+thead {
+  background: lightgrey;
+  color: black;
+}
+th {
+  font-size: 1rem;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 30px;
+}
+
+td {
+  font-size: 0.8rem;
+  text-align: center;
+  /* background: white; */
+  color: white;
+  border: 1px solid white;
+}
