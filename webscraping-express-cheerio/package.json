@@ -1,0 +1,21 @@
+{
+  "name": "webscraping-express-cheerio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon scrape.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0"
+  }
+}
