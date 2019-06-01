@@ -1,33 +1,58 @@
 # NEW TECH SANDBOX
 
-> Learning new technologies and implementing them into your work is one of the main tasks a webdev/software engineer faces. Instead of cluttering up my github with hundreds of small repos, I've decided to keep one master repo of all of the tech I'm learning. New, small projects where I begin to implement new languages, packages, services, or techniques will be listed here.
+> Learning new technologies and implementing them into your work is one of the main tasks a webdev/software engineer faces. Instead of cluttering up my github with hundreds of small repos, I've decided to keep one master repo of all of the tech I'm learning. Small projects where I begin to implement new languages, packages, services, or techniques will be listed here.
 
-## Table of Contents
+## [React Hooks](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/hooks-carousel)
 
 ![alt text](./hooks-carousel/carousel-one.png "Carousel Component written with React Hooks")
 
--[Hooks Carousel](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/hooks-carousel) - Since their introduction, React Hooks have been hailed as _the_ solution to state management, allowing developers to use state and other React features without writing a class. I implemented a carousel using the useState, useEffect, and useRefs hooks and even wrote my own hook, useInterval! For this component to work, I also had to learn about Javascript's setInterval and clearInterval functions.
+Since their introduction, React Hooks have been hailed as _the_ solution to state management, allowing developers to use state and other React features without writing a class. I implemented a carousel using the useState, useEffect, and useRefs hooks and even wrote my own hook, **useInterval**! For this component to work, I also had to learn about Javascript's _setInterval_ and _clearInterval_ functions.
+
+## [Modern Api - Node, Hapi, GraphQL, MongoDB, Swagger](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/hooks-carousel)
+
+![alt text](./modern-api/readme.png "Documentation screen shot")
+
+A powerful and flexible web api built with Node, Hapi, GraphQL, and MongoDB. Hapi enables developers to focus on writing reusable application logic instead of spending time building infrastructure and is an extremely powerful tool that simplifies our code. GraphQL allows the client to make requests for data in the format it wants to consume it. I combined the two with this simple application.
+
+![alt text](./upload-parse-csv-node-multer/assets/upload.png "CSV Upload Dashboard")
+
+## [CSV Upload and Parser - Node, Multer, PapaParse](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/upload-parse-csv-node-multer)
+
+NodeJs is built atop of C++ code which gives us devs the ability to change the computer's internals. I decided it was time to explore the 'fs' library to manipulate the filesystem by downloading files to and reading files from the drive. I also used PapaParse to parse the csv files to JSON to send back to the client. Check out how easy it is with the snippet below!
 
 ```javascript
-function useInterval(callback, delay) {
-  const savedCallback = useRef();
-
-  useEffect(() => {
-    savedCallback.current = callback;
+app.get("/files", function(req, res) {
+  let fileArray = [];
+  fs.readdirSync(publicFolder).forEach(file => {
+    fileArray.push(file);
   });
 
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
-    }
+  res.status(200).json(fileArray);
+});
 
-    let id = setInterval(tick, delay);
-    // Destroys timer on unmount
-    return () => clearInterval(id);
-  }, [delay]);
-}
+app.get("/files/:filename", function(req, res) {
+  let { filename } = req.params;
+  let csvPath = `${publicFolder}/${filename}.csv`;
+  const file = fs.createReadStream(csvPath);
+  let data = {};
+
+  papa.parse(file, {
+    header: true,
+    download: false,
+    complete(results) {
+      data = { rows: results.data, fields: results.meta.fields };
+      res.status(200).json(data);
+    }
+  });
+});
 ```
 
--[Modern Api](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/modern-api) - A powerful and flexible web api built with Node, Hapi, GraphQL, and MongoDB.
+## [D3/React Data Visualizations](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/d3-data-vis)
 
--[CSV Upload and Parser](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/upload-parse-csv-node-multer)
+![alt text](./d3-data-vis/src/d3readme.png "Data Visualizations")
+
+D3 brings data to life. D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. I built three visualizations with varying difficulty and features. My first chart was a simple bar chart, nothing special there, but they _are_ one of the most widely utilized chart types. Next, a topojson powered World Map, with hotspots showing the largest cities in the world (10m+ population). Then, I took a stab with d3's powerful brush and filter features and made an interactive histogram/area chart combo.
+
+## [BrainJs for Machine Learning](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/brainjs-machine-learning)
+
+## [Webscraping with Cheerio](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/webscraping-express-cheerio)

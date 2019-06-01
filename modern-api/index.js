@@ -1,10 +1,11 @@
-const hapi = require("hapi");
+const hapi = require("@hapi/hapi");
 const mongoose = require("mongoose");
 
 //
 const Painting = require("./models/Painting");
 const { graphqlHapi, graphiqlHapi } = require("apollo-server-hapi");
 const schema = require("./graphql/schema");
+
 /* swagger section */
 const Inert = require("inert");
 const Vision = require("vision");
@@ -77,11 +78,11 @@ const init = async () => {
         tags: ["api", "v1", "painting"]
       },
       handler: (req, reply) => {
-        const { name, url, technique } = req.payload;
+        const { name, url, techniques } = req.payload;
         const painting = new Painting({
           name,
           url,
-          technique
+          techniques
         });
 
         return painting.save();
@@ -102,10 +103,9 @@ process.on("unHandledRejection", err => {
 
 init();
 
-mongoose.connect(
-  "mongodb://admin:adpass1@ds243963.mlab.com:43963/api-design",
-  { useNewUrlParser: true }
-);
+mongoose.connect("mongodb://admin:adpass1@ds243963.mlab.com:43963/api-design", {
+  useNewUrlParser: true
+});
 mongoose.connection.once("open", () => {
   console.log("connected to database");
 });

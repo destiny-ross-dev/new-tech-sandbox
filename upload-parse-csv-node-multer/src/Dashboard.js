@@ -42,7 +42,7 @@ function Dashboard() {
             type="file"
             name="csv"
             id="upload-csv"
-            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+            accept=".csv"
           />
           <label htmlFor="upload-csv">Browse</label>
           <button onClick={onUploadHandler}>Upload</button>

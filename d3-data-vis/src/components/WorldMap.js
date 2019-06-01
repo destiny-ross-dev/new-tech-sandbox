@@ -169,46 +169,46 @@ class WorldMap extends Component {
     console.log("Marker: ", this.state.cities[markerIndex]);
   }
   componentDidMount() {
-        this.setState({
-          worlddata: feature(world, world.objects.countries).features
-        });
-      }
-    
-  
+    this.setState({
+      worlddata: feature(world, world.objects.countries).features
+    });
+  }
+
   render() {
     return (
       <div>
-        <h2>Cities with over 1m population</h2>
-      <svg width={600} height={350} viewBox="0 0 600 350">
-        <g className="countries">
-          {this.state.worlddata.map((d, i) => (
-            <path
-              key={`path-${i}`}
-              d={geoPath().projection(this.projection())(d)}
-              className="country"
-              fill={`rgba(254, 153, 34,${(1 / this.state.worlddata.length) * i})`}
-              stroke="#FFFFFF"
-              strokeWidth={0.5}
-              onClick={() => this.handleCountryClick(i)}
-            />
-          ))}
-        </g>
-        <g className="markers">
-          {this.state.cities.map((city, i) => (
-            <circle
-              key={`marker-${i}`}
-              cx={this.projection()(city.coordinates)[0]}
-              cy={this.projection()(city.coordinates)[1]}
-              r={city.population / 3000000}
-              fill="#E91E63"
-              stroke="#FFFFFF"
-              className="marker"
-              onClick={() => this.handleMarkerClick(i)}
-            />
-          ))}
-        </g>
-      </svg>
-        </div>
+        <h2>Cities with over 10m population</h2>
+        <svg width={600} height={350} viewBox="0 0 600 350">
+          <g className="countries">
+            {this.state.worlddata.map((d, i) => (
+              <path
+                key={`path-${i}`}
+                d={geoPath().projection(this.projection())(d)}
+                className="country"
+                fill={`rgba(254, 153, 34,${(1 / this.state.worlddata.length) *
+                  i})`}
+                stroke="#FFFFFF"
+                strokeWidth={0.5}
+                onClick={() => this.handleCountryClick(i)}
+              />
+            ))}
+          </g>
+          <g className="markers">
+            {this.state.cities.map((city, i) => (
+              <circle
+                key={`marker-${i}`}
+                cx={this.projection()(city.coordinates)[0]}
+                cy={this.projection()(city.coordinates)[1]}
+                r={city.population / 3000000}
+                fill="#E91E63"
+                stroke="#FFFFFF"
+                className="marker"
+                onClick={() => this.handleMarkerClick(i)}
+              />
+            ))}
+          </g>
+        </svg>
+      </div>
     );
   }
 }
