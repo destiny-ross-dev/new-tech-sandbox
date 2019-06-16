@@ -10,6 +10,6 @@ const app = express();
 app.use(json());
 app.use(cors());
 
-app.get("/", c.getRequest);
+app.get("/request", c.getRequest);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

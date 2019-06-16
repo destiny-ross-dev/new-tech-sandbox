@@ -1,45 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
-function App() {
-  const [lat, setLat] = useState("");
-  const [long, setLong] = useState("");
-  useEffect(() => {
+class App extends Component {
+  state = { lat: "", long: "", results: [] };
+
+  componentDidMount() {
+    this.setUpCoords();
+  }
+  setUpCoords = () => {
     let { navigator } = window;
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
+      navigator.geolocation.getCurrentPosition(position => {
+        this.setState(
+          {
+            lat: position.coords.latitude,
+            long: position.coords.longitude
+          },
+          () =>
+            axios
+              .get(`/request?lat=${this.state.lat}&long=${this.state.long}`)
+              .then(res => {
+                this.setState({ results: res.data.results });
+              })
+        );
       });
-    } else {
-      /* geolocation IS NOT available */
     }
-  });
-  useEffect(() => {
-    axios
-      .get("/", {
-        lat,
-        long
-      })
-      .then(res => console.log(res.data));
-  });
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {`${lat}, ${long}`}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          {/* {`${this.state.lat}, ${this.state.long}`} */}
+          {this.state.results &&
+            this.state.results.map((e, i) => {
+              return <h1 key={i}>{e.name}</h1>;
+            })}
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
