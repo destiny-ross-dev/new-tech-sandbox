@@ -56,3 +56,9 @@ D3 brings data to life. D3.js is a JavaScript library for producing dynamic, int
 ## [BrainJs for Machine Learning](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/brainjs-machine-learning)
 
 ## [Webscraping with Cheerio](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/webscraping-express-cheerio)
+
+## [Redis Data Cache](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/redis-pokedex)
+
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. In this app, I cached data from the pokeapi and use it to display a common scene, for all who have played pokemon.
+
+![alt text](./redis-pokedex/src/choice.png "Starters from redis cache")
