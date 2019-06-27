@@ -53,12 +53,18 @@ app.get("/files/:filename", function(req, res) {
 
 D3 brings data to life. D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. I built three visualizations with varying difficulty and features. My first chart was a simple bar chart, nothing special there, but they _are_ one of the most widely utilized chart types. Next, a topojson powered World Map, with hotspots showing the largest cities in the world (10m+ population). Then, I took a stab with d3's powerful brush and filter features and made an interactive histogram/area chart combo.
 
-## [BrainJs for Machine Learning](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/brainjs-machine-learning)
-
-## [Webscraping with Cheerio](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/webscraping-express-cheerio)
-
 ## [Redis Data Cache](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/redis-pokedex)
 
 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. In this app, I cached data from the pokeapi and use it to display a common scene, for all who have played pokemon.
 
 ![alt text](./redis-pokedex/src/choice.png "Starters from redis cache")
+
+## [Typescript](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/typescript-test)
+
+## [State Management with Observables](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/rxjs-react-observables)
+
+## [BrainJs for Machine Learning](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/brainjs-machine-learning)
+
+## [Webscraping with Cheerio](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/webscraping-express-cheerio)
+
+## [Lazy Loading with Suspense](https://github.com/destiny-ross-dev/new-tech-sandbox/tree/master/lazy-loading-suspense)
